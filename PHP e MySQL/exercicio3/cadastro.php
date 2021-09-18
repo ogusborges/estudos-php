@@ -6,7 +6,7 @@
 
         $email = isset($_POST["email"]) && !empty($_POST["email"]) ? $_POST["email"] : false;
         $senha = isset($_POST["senha"]) && !empty($_POST["senha"]) ? $_POST["senha"] : false;
-
+        
         if($email && $senha) {
             try {
                 $sql = <<<SQL
@@ -14,8 +14,10 @@
                     VALUES (?, ?);
                 SQL;
                 
+                $senha = password_hash($senha, PASSWORD_DEFAULT);
+
                 $stmt = $pdo->prepare($sql);
-                $stmt->execute([$email, password_hash($senha, PASSWORD_DEFAULT)]);
+                $stmt->execute([$email, $senha]);
 
             } catch(Exception $e) {
                 if($e->errorInfo[1] === 1062) {
@@ -49,7 +51,7 @@
                         <?php
                             if(!empty($error_message)) {
                                 $error_html = <<<HTML
-                                    <div class="alert alert-danger my-1" role="alert">
+                                    <div class="alert alert-danger my-3" role="alert">
                                         $error_message
                                     </div>
                                 HTML;
@@ -57,7 +59,7 @@
                                 echo $error_html;
                             } else if($_SERVER["REQUEST_METHOD"] == "POST" && empty($error_message)) {
                                 $success_html = <<<HTML
-                                    <div class="alert alert-success my-1" role="alert">
+                                    <div class="alert alert-success my-3" role="alert">
                                         Usuário cadastrado com sucesso.
                                     </div>
                                 HTML;

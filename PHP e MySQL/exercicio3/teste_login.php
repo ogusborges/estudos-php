@@ -55,7 +55,7 @@
                 <div class="card p-3">
                     <img class="m-auto mt-4" src="../images/Ufu_logo.svg" alt="Logotipo da UFU." width="72" height="57">
                     <div class="card-body text-center">
-                        <h1 class="h3 mb-3 fw-normal">Cadastro de Usuário</h1>
+                        <h1 class="h3 mb-3 fw-normal">Teste de Login</h1>
 
                         <?php
                             if(!empty($error_message)) {
