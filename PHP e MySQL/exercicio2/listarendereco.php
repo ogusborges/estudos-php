@@ -28,7 +28,7 @@
                     </thead>
                     <tbody>
                     <?php
-                        require_once "connection.php";
+                        require_once "../database/connection.php";
                         $pdo = mySqlConnect();
 
                         try {

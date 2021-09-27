@@ -42,7 +42,7 @@
                             $tbl_ind = 1;
 
                             while($row = $stmt->fetch()) {
-                                $email = $row["email"];
+                                $email = htmlspecialchars($row["email"]);
                                 $senha = $row["senha"];
 
                                 echo <<<TBL

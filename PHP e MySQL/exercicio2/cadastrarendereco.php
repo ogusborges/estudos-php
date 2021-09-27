@@ -17,7 +17,7 @@
     $estado = isset($_POST["estado"]) && !empty(trim($_POST["estado"])) ? trim($_POST["estado"]) : $error_count++;
 
     if($contagem == $quantidade || $error_count != 0) {
-        header("Location: http://gustavoboliveira.atwebpages.com/trabalho6/exercicio2/", TRUE, 200);
+        header("Location: http://gustavoboliveira.atwebpages.com/trabalho6/exercicio2", TRUE, 200);
         exit();
     }
 
@@ -43,4 +43,6 @@
         else
           exit('Falha ao cadastrar os dados: ' . $e->getMessage());
     }
+    header("Location: http://gustavoboliveira.atwebpages.com/trabalho6/exercicio2/listarendereco.php", TRUE, 200);
+    exit();
 ?>
